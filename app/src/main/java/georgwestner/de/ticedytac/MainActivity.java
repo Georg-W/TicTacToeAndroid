@@ -17,10 +17,9 @@ public class MainActivity extends AppCompatActivity{
 
     public int turns = 0;
 
-    //int[] fields = {1,2,3,4,5,6,7,8,9};
-
     List fields = new ArrayList();
 
+    boolean over = false;
 
     final int[] field1 = {0};
     final int[] field2 = {0};
@@ -76,6 +75,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 field1[0] = 1;
+                fields.remove(fields.indexOf(1));
                 handleButtonClick((ImageButton) v);
             }
         });
@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 field2[0] = 1;
+                fields.remove(fields.indexOf(2));
                 handleButtonClick((ImageButton) v);
             }
         });
@@ -90,6 +91,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 field3[0] = 1;
+                fields.remove(fields.indexOf(3));
                 handleButtonClick((ImageButton) v);
             }
         });
@@ -97,6 +99,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 field4[0] = 1;
+                fields.remove(fields.indexOf(4));
                 handleButtonClick((ImageButton) v);
             }
         });
@@ -104,6 +107,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 field5[0] = 1;
+                fields.remove(fields.indexOf(5));
                 handleButtonClick((ImageButton) v);
             }
         });
@@ -111,6 +115,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 field6[0] = 1;
+                fields.remove(fields.indexOf(6));
                 handleButtonClick((ImageButton) v);
             }
         });
@@ -118,6 +123,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 field7[0] = 1;
+                fields.remove(fields.indexOf(7));
                 handleButtonClick((ImageButton) v);
             }
         });
@@ -125,6 +131,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 field8[0] = 1;
+                fields.remove(fields.indexOf(8));
                 handleButtonClick((ImageButton) v);
             }
         });
@@ -132,6 +139,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 field9[0] = 1;
+                fields.remove(fields.indexOf(9));
                 handleButtonClick((ImageButton) v);
             }
         });
@@ -149,9 +157,15 @@ public class MainActivity extends AppCompatActivity{
         imagebutton.setImageResource(R.drawable.cross);
 
         textView.setText("CPU");
+
         addTurn();
         checkResult();
-        executeAiMove();
+        if (over!=true){
+            executeAiMove();
+            addTurn();
+            checkResult();
+        }
+
     }
 
 
@@ -160,21 +174,24 @@ public class MainActivity extends AppCompatActivity{
         if (field1[0]==1&&field2[0]==1&&field3[0]==1 || field4[0]==1&&field5[0]==1&&field6[0]==1 || field7[0]==1&&field8[0]==1&&field9[0]==1 ||
                 field1[0]==1&&field4[0]==1&&field7[0]==1 || field2[0]==1&&field5[0]==1&&field8[0]==1 || field3[0]==1&&field6[0]==1&&field9[0]==1 ||
                 field1[0]==1&&field5[0]==1&&field9[0]==1 || field3[0]==1&&field5[0]==1&&field7[0]==1){
-            Toast.makeText(this, "Yayyyy! You win broo", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "早安甜甜！我爱你！！！", Toast.LENGTH_SHORT).show();
+            over=true;
             restartApp();
         }
         else{
             if(field1[0]==2&&field2[0]==2&&field3[0]==2 || field4[0]==2&&field5[0]==2&&field6[0]==2 || field7[0]==2&&field8[0]==2&&field9[0]==2 ||
                     field1[0]==2&&field4[0]==2&&field7[0]==2 || field2[0]==2&&field5[0]==2&&field8[0]==2 || field3[0]==2&&field6[0]==2&&field9[0]==2 ||
                     field1[0]==2&&field5[0]==2&&field9[0]==2 || field3[0]==2&&field5[0]==2&&field7[0]==2){
-
-                Toast.makeText(this, "Noo a loss... Try again and beat the Developer!", Toast.LENGTH_SHORT).show();
                 restartApp();
+                over=true;
+                Toast.makeText(this, "Noo a loss... Try again and beat the Developer!", Toast.LENGTH_SHORT).show();
+
 
             }
             else{
                 if(turns==9){
                     Toast.makeText(this, "Well.. a draw. Try again!", Toast.LENGTH_SHORT).show();
+                    over=true;
                     restartApp();
                 }
 
@@ -202,70 +219,80 @@ public class MainActivity extends AppCompatActivity{
 
 
 
-        int move = fields[random.nextInt(fields.)];
+        int randomPosition = random.nextInt(fields.size());
+        int move = (int) fields.get(randomPosition);
 
         switch (move){
             case 1:
                 button1.setImageResource(R.drawable.circle);
                 field1[0]=2;
-                fields.remove(1);
+                fields.remove(fields.indexOf(1));
                 break;
             case 2:
                 button2.setImageResource(R.drawable.circle);
                 field2[0]=2;
-                fields.remove(2);
+                fields.remove(fields.indexOf(2));
                 break;
             case 3:
                 button3.setImageResource(R.drawable.circle);
                 field3[0]=2;
-                fields.remove(3);
+                fields.remove(fields.indexOf(3));
                 break;
             case 4:
                 button4.setImageResource(R.drawable.circle);
                 field4[0]=2;
-                fields.remove(4);
+                fields.remove(fields.indexOf(4));
                 break;
             case 5:
                 button5.setImageResource(R.drawable.circle);
                 field5[0]=2;
-                fields.remove(5);
+                fields.remove(fields.indexOf(5));
                 break;
             case 6:
                 button6.setImageResource(R.drawable.circle);
                 field6[0]=2;
-                fields.remove(6);
+                fields.remove(fields.indexOf(6));
                 break;
             case 7:
                 button7.setImageResource(R.drawable.circle);
                 field7[0]=2;
-                fields.remove(7);
+                fields.remove(fields.indexOf(7));
                 break;
             case 8:
                 button8.setImageResource(R.drawable.circle);
                 field8[0]=2;
-                fields.remove(8);
+                fields.remove(fields.indexOf(8));
                 break;
             case 9:
                 button9.setImageResource(R.drawable.circle);
                 field9[0]=2;
-                fields.remove(9);
+                fields.remove(fields.indexOf(9));
                 break;
             default:
                 break;
 
         }
 
-        addTurn();
-
     }
-
-
-
 
 
     void restartApp(){
 
         turns = -1;
+
+        over = false;
+
+        fields.clear();
+        fields.add(1);
+        fields.add(2);
+        fields.add(3);
+        fields.add(4);
+        fields.add(5);
+        fields.add(6);
+        fields.add(7);
+        fields.add(8);
+        fields.add(9);
+
 
         field1[0] = 0;
         field2[0] = 0;
