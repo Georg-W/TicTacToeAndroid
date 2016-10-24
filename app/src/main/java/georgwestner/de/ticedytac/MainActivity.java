@@ -10,7 +10,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity{
 
@@ -56,7 +55,6 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
-
     void setupUi() {
 
         ImageButton button1 = (ImageButton) findViewById(R.id.imageButton1);
@@ -68,7 +66,6 @@ public class MainActivity extends AppCompatActivity{
         ImageButton button7 = (ImageButton) findViewById(R.id.imageButton7);
         ImageButton button8 = (ImageButton) findViewById(R.id.imageButton8);
         ImageButton button9 = (ImageButton) findViewById(R.id.imageButton9);
-
 
 
         button1.setOnClickListener(new View.OnClickListener() {
@@ -160,14 +157,16 @@ public class MainActivity extends AppCompatActivity{
 
         addTurn();
         checkResult();
-        if (over!=true){
+        if (over==false){
             executeAiMove();
             addTurn();
             checkResult();
         }
+        else{
+            restartApp();
+        }
 
     }
-
 
 
     void checkResult(){
@@ -182,10 +181,9 @@ public class MainActivity extends AppCompatActivity{
             if(field1[0]==2&&field2[0]==2&&field3[0]==2 || field4[0]==2&&field5[0]==2&&field6[0]==2 || field7[0]==2&&field8[0]==2&&field9[0]==2 ||
                     field1[0]==2&&field4[0]==2&&field7[0]==2 || field2[0]==2&&field5[0]==2&&field8[0]==2 || field3[0]==2&&field6[0]==2&&field9[0]==2 ||
                     field1[0]==2&&field5[0]==2&&field9[0]==2 || field3[0]==2&&field5[0]==2&&field7[0]==2){
-                restartApp();
                 over=true;
                 Toast.makeText(this, "Noo a loss... Try again and beat the Developer!", Toast.LENGTH_SHORT).show();
-
+                restartApp();
 
             }
             else{
@@ -278,7 +276,7 @@ public class MainActivity extends AppCompatActivity{
 
     void restartApp(){
 
-        turns = -1;
+        turns = 0;
 
         over = false;
 
@@ -293,7 +291,6 @@ public class MainActivity extends AppCompatActivity{
         fields.add(8);
         fields.add(9);
 
-
         field1[0] = 0;
         field2[0] = 0;
         field3[0] = 0;
@@ -303,7 +300,6 @@ public class MainActivity extends AppCompatActivity{
         field7[0] = 0;
         field8[0] = 0;
         field9[0] = 0;
-
 
         ImageButton button1 = (ImageButton) findViewById(R.id.imageButton1);
         ImageButton button2 = (ImageButton) findViewById(R.id.imageButton2);
@@ -325,13 +321,7 @@ public class MainActivity extends AppCompatActivity{
         button8.setImageResource(R.drawable.grid_box);
         button9.setImageResource(R.drawable.grid_box);
 
-
-
     }
-
-
-
-
 
 
 }
