@@ -37,9 +37,11 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         setupUi();
         createArray();
     }
+
 
     void createArray(){
 
@@ -71,73 +73,91 @@ public class MainActivity extends AppCompatActivity{
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                field1[0] = 1;
-                fields.remove(fields.indexOf(1));
-                handleButtonClick((ImageButton) v);
+                if(field1[0] == 0){
+                    field1[0] = 1;
+                    fields.remove(fields.indexOf(1));
+                    handleButtonClick((ImageButton) v);
+                }
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                field2[0] = 1;
-                fields.remove(fields.indexOf(2));
-                handleButtonClick((ImageButton) v);
+                if(field2[0] == 0){
+                    field2[0] = 1;
+                    fields.remove(fields.indexOf(2));
+                    handleButtonClick((ImageButton) v);
+                }
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                field3[0] = 1;
-                fields.remove(fields.indexOf(3));
-                handleButtonClick((ImageButton) v);
+                if(field3[0] == 0){
+                    field3[0] = 1;
+                    fields.remove(fields.indexOf(3));
+                    handleButtonClick((ImageButton) v);
+                }
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                field4[0] = 1;
-                fields.remove(fields.indexOf(4));
-                handleButtonClick((ImageButton) v);
+                if(field4[0] == 0){
+                    field4[0] = 1;
+                    fields.remove(fields.indexOf(4));
+                    handleButtonClick((ImageButton) v);
+                }
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                field5[0] = 1;
-                fields.remove(fields.indexOf(5));
-                handleButtonClick((ImageButton) v);
+                if(field5[0] == 0){
+                    field5[0] = 1;
+                    fields.remove(fields.indexOf(5));
+                    handleButtonClick((ImageButton) v);
+                }
             }
         });
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                field6[0] = 1;
-                fields.remove(fields.indexOf(6));
-                handleButtonClick((ImageButton) v);
+                if(field6[0] == 0){
+                    field6[0] = 1;
+                    fields.remove(fields.indexOf(6));
+                    handleButtonClick((ImageButton) v);
+                }
             }
         });
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                field7[0] = 1;
-                fields.remove(fields.indexOf(7));
-                handleButtonClick((ImageButton) v);
+                if(field7[0] == 0){
+                    field7[0] = 1;
+                    fields.remove(fields.indexOf(7));
+                    handleButtonClick((ImageButton) v);
+                }
             }
         });
         button8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                field8[0] = 1;
-                fields.remove(fields.indexOf(8));
-                handleButtonClick((ImageButton) v);
+                if(field8[0] == 0){
+                    field8[0] = 1;
+                    fields.remove(fields.indexOf(8));
+                    handleButtonClick((ImageButton) v);
+                }
             }
         });
         button9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                field9[0] = 1;
-                fields.remove(fields.indexOf(9));
-                handleButtonClick((ImageButton) v);
+                if(field9[0] == 0){
+                    field9[0] = 1;
+                    fields.remove(fields.indexOf(9));
+                    handleButtonClick((ImageButton) v);
+                }
             }
         });
     }
@@ -150,6 +170,7 @@ public class MainActivity extends AppCompatActivity{
     }
 
     void handleButtonClick(ImageButton imagebutton) {
+
         TextView textView = (TextView) findViewById(R.id.player);
         imagebutton.setImageResource(R.drawable.cross);
 
@@ -173,7 +194,7 @@ public class MainActivity extends AppCompatActivity{
         if (field1[0]==1&&field2[0]==1&&field3[0]==1 || field4[0]==1&&field5[0]==1&&field6[0]==1 || field7[0]==1&&field8[0]==1&&field9[0]==1 ||
                 field1[0]==1&&field4[0]==1&&field7[0]==1 || field2[0]==1&&field5[0]==1&&field8[0]==1 || field3[0]==1&&field6[0]==1&&field9[0]==1 ||
                 field1[0]==1&&field5[0]==1&&field9[0]==1 || field3[0]==1&&field5[0]==1&&field7[0]==1){
-            Toast.makeText(this, "早安甜甜！我爱你！！！", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Win! Can you do it again?", Toast.LENGTH_SHORT).show();
             over=true;
             restartApp();
         }
@@ -217,59 +238,67 @@ public class MainActivity extends AppCompatActivity{
 
 
 
-        int randomPosition = random.nextInt(fields.size());
-        int move = (int) fields.get(randomPosition);
-
-        switch (move){
-            case 1:
-                button1.setImageResource(R.drawable.circle);
-                field1[0]=2;
-                fields.remove(fields.indexOf(1));
-                break;
-            case 2:
-                button2.setImageResource(R.drawable.circle);
-                field2[0]=2;
-                fields.remove(fields.indexOf(2));
-                break;
-            case 3:
-                button3.setImageResource(R.drawable.circle);
-                field3[0]=2;
-                fields.remove(fields.indexOf(3));
-                break;
-            case 4:
-                button4.setImageResource(R.drawable.circle);
-                field4[0]=2;
-                fields.remove(fields.indexOf(4));
-                break;
-            case 5:
-                button5.setImageResource(R.drawable.circle);
-                field5[0]=2;
-                fields.remove(fields.indexOf(5));
-                break;
-            case 6:
-                button6.setImageResource(R.drawable.circle);
-                field6[0]=2;
-                fields.remove(fields.indexOf(6));
-                break;
-            case 7:
-                button7.setImageResource(R.drawable.circle);
-                field7[0]=2;
-                fields.remove(fields.indexOf(7));
-                break;
-            case 8:
-                button8.setImageResource(R.drawable.circle);
-                field8[0]=2;
-                fields.remove(fields.indexOf(8));
-                break;
-            case 9:
-                button9.setImageResource(R.drawable.circle);
-                field9[0]=2;
-                fields.remove(fields.indexOf(9));
-                break;
-            default:
-                break;
-
+        /*
+        if (field1[0]==1 && field2[0]==1){
+            field3[0]=2;
+            fields.remove(fields.indexOf(3));
         }
+        */
+
+            int randomPosition = random.nextInt(fields.size());
+            int move = (int) fields.get(randomPosition);
+
+
+            switch (move) {
+                case 1:
+                    button1.setImageResource(R.drawable.circle);
+                    field1[0] = 2;
+                    fields.remove(fields.indexOf(1));
+                    break;
+                case 2:
+                    button2.setImageResource(R.drawable.circle);
+                    field2[0] = 2;
+                    fields.remove(fields.indexOf(2));
+                    break;
+                case 3:
+                    button3.setImageResource(R.drawable.circle);
+                    field3[0] = 2;
+                    fields.remove(fields.indexOf(3));
+                    break;
+                case 4:
+                    button4.setImageResource(R.drawable.circle);
+                    field4[0] = 2;
+                    fields.remove(fields.indexOf(4));
+                    break;
+                case 5:
+                    button5.setImageResource(R.drawable.circle);
+                    field5[0] = 2;
+                    fields.remove(fields.indexOf(5));
+                    break;
+                case 6:
+                    button6.setImageResource(R.drawable.circle);
+                    field6[0] = 2;
+                    fields.remove(fields.indexOf(6));
+                    break;
+                case 7:
+                    button7.setImageResource(R.drawable.circle);
+                    field7[0] = 2;
+                    fields.remove(fields.indexOf(7));
+                    break;
+                case 8:
+                    button8.setImageResource(R.drawable.circle);
+                    field8[0] = 2;
+                    fields.remove(fields.indexOf(8));
+                    break;
+                case 9:
+                    button9.setImageResource(R.drawable.circle);
+                    field9[0] = 2;
+                    fields.remove(fields.indexOf(9));
+                    break;
+                default:
+                    break;
+
+            }
 
     }
 
@@ -277,6 +306,9 @@ public class MainActivity extends AppCompatActivity{
     void restartApp(){
 
         turns = 0;
+
+        TextView turn = (TextView) findViewById(R.id.turn);
+        turn.setText("Turn: " + turns);
 
         over = false;
 
@@ -322,6 +354,7 @@ public class MainActivity extends AppCompatActivity{
         button9.setImageResource(R.drawable.grid_box);
 
     }
+
 
 
 }
