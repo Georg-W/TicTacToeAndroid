@@ -245,61 +245,214 @@ public class MainActivity extends AppCompatActivity{
         }
         */
 
-            int randomPosition = random.nextInt(fields.size());
-            int move = (int) fields.get(randomPosition);
+
+        int possibility = random.nextInt(100);
+        Toast.makeText(this, "Zahl: "+possibility, Toast.LENGTH_SHORT).show();
 
 
-            switch (move) {
-                case 1:
-                    button1.setImageResource(R.drawable.circle);
-                    field1[0] = 2;
-                    fields.remove(fields.indexOf(1));
-                    break;
-                case 2:
-                    button2.setImageResource(R.drawable.circle);
-                    field2[0] = 2;
-                    fields.remove(fields.indexOf(2));
-                    break;
-                case 3:
-                    button3.setImageResource(R.drawable.circle);
-                    field3[0] = 2;
-                    fields.remove(fields.indexOf(3));
-                    break;
-                case 4:
-                    button4.setImageResource(R.drawable.circle);
-                    field4[0] = 2;
-                    fields.remove(fields.indexOf(4));
-                    break;
-                case 5:
-                    button5.setImageResource(R.drawable.circle);
-                    field5[0] = 2;
-                    fields.remove(fields.indexOf(5));
-                    break;
-                case 6:
-                    button6.setImageResource(R.drawable.circle);
-                    field6[0] = 2;
-                    fields.remove(fields.indexOf(6));
-                    break;
-                case 7:
-                    button7.setImageResource(R.drawable.circle);
-                    field7[0] = 2;
-                    fields.remove(fields.indexOf(7));
-                    break;
-                case 8:
-                    button8.setImageResource(R.drawable.circle);
-                    field8[0] = 2;
-                    fields.remove(fields.indexOf(8));
-                    break;
-                case 9:
-                    button9.setImageResource(R.drawable.circle);
-                    field9[0] = 2;
-                    fields.remove(fields.indexOf(9));
-                    break;
-                default:
-                    break;
+        //80% Possibility of random move
 
+        if  (possibility<80){
+            if (field1[0]==1 && field2[0]==1 && field3[0]==0){
+                button3.setImageResource(R.drawable.circle);
+                field3[0]=2;
+                fields.remove(fields.indexOf(3));
+            }
+            else if(field1[0]==1 && field3[0]==1 && field2[0]==0){
+                button2.setImageResource(R.drawable.circle);
+                field2[0]=2;
+                fields.remove(fields.indexOf(2));
+            }
+            else if(field2[0]==1 && field3[0]==1 && field1[0]==0){
+                button1.setImageResource(R.drawable.circle);
+                field1[0]=2;
+                fields.remove(fields.indexOf(1));
+            }
+            else if(field4[0]==1 && field5[0]==1 && field6[0]==0){
+                button6.setImageResource(R.drawable.circle);
+                field6[0]=2;
+                fields.remove(fields.indexOf(6));
+            }
+            else if(field4[0]==1 && field6[0]==1 && field5[0]==0){
+                button5.setImageResource(R.drawable.circle);
+                field5[0]=2;
+                fields.remove(fields.indexOf(5));
+            }
+            else if(field5[0]==1 && field6[0]==1 && field4[0]==0){
+                button4.setImageResource(R.drawable.circle);
+                field4[0]=2;
+                fields.remove(fields.indexOf(4));
+            }
+            else if(field7[0]==1 && field8[0]==1 && field9[0]==0){
+                button9.setImageResource(R.drawable.circle);
+                field9[0]=2;
+                fields.remove(fields.indexOf(9));
+            }
+            else if(field7[0]==1 && field9[0]==1 && field8[0]==0){
+                button8.setImageResource(R.drawable.circle);
+                field8[0]=2;
+                fields.remove(fields.indexOf(8));
+            }
+            else if(field9[0]==1 && field8[0]==1 && field7[0]==0){
+                button7.setImageResource(R.drawable.circle);
+                field7[0]=2;
+                fields.remove(fields.indexOf(7));
             }
 
+            // Diagonal
+            else if(field1[0]==1 && field5[0]==1 && field9[0]==0){
+                button9.setImageResource(R.drawable.circle);
+                field9[0]=2;
+                fields.remove(fields.indexOf(9));
+            }
+            else if(field9[0]==1 && field5[0]==1 && field1[0]==0){
+                button1.setImageResource(R.drawable.circle);
+                field1[0]=2;
+                fields.remove(fields.indexOf(1));
+            }
+            else if(field1[0]==1 && field9[0]==1 && field5[0]==0){
+                button5.setImageResource(R.drawable.circle);
+                field5[0]=2;
+                fields.remove(fields.indexOf(5));
+            }
+            else if(field7[0]==1 && field5[0]==1 && field3[0]==0){
+                button3.setImageResource(R.drawable.circle);
+                field3[0]=2;
+                fields.remove(fields.indexOf(3));
+            }
+            else if(field7[0]==1 && field3[0]==1 && field5[0]==0){
+                button5.setImageResource(R.drawable.circle);
+                field5[0]=2;
+                fields.remove(fields.indexOf(5));
+            }
+            else if(field5[0]==1 && field3[0]==1 && field7[0]==0){
+                button7.setImageResource(R.drawable.circle);
+                field7[0]=2;
+                fields.remove(fields.indexOf(7));
+            }
+
+            // Downwards
+            else if(field1[0]==1 && field4[0]==1 && field7[0]==0){
+                button7.setImageResource(R.drawable.circle);
+                field7[0]=2;
+                fields.remove(fields.indexOf(7));
+            }
+            else if(field1[0]==1 && field7[0]==1 && field4[0]==0){
+                button4.setImageResource(R.drawable.circle);
+                field4[0]=2;
+                fields.remove(fields.indexOf(4));
+            }
+            else if(field7[0]==1 && field4[0]==1 && field1[0]==0){
+                button1.setImageResource(R.drawable.circle);
+                field1[0]=2;
+                fields.remove(fields.indexOf(1));
+            }
+            else if(field2[0]==1 && field5[0]==1 && field8[0]==0){
+                button8.setImageResource(R.drawable.circle);
+                field8[0]=2;
+                fields.remove(fields.indexOf(8));
+            }
+            else if(field2[0]==1 && field8[0]==1 && field5[0]==0){
+                button5.setImageResource(R.drawable.circle);
+                field5[0]=2;
+                fields.remove(fields.indexOf(5));
+            }
+            else if(field8[0]==1 && field5[0]==1 && field2[0]==0){
+                button2.setImageResource(R.drawable.circle);
+                field2[0]=2;
+                fields.remove(fields.indexOf(2));
+            }
+            else if(field3[0]==1 && field6[0]==1 && field9[0]==0){
+                button9.setImageResource(R.drawable.circle);
+                field9[0]=2;
+                fields.remove(fields.indexOf(9));
+            }
+            else if(field3[0]==1 && field9[0]==1 && field6[0]==0){
+                button6.setImageResource(R.drawable.circle);
+                field6[0]=2;
+                fields.remove(fields.indexOf(6));
+            }
+            else if(field9[0]==1 && field6[0]==1 && field3[0]==0){
+                button3.setImageResource(R.drawable.circle);
+                field3[0]=2;
+                fields.remove(fields.indexOf(3));
+            }
+
+            else if(1==1){
+                executeRandomMove();
+            }
+        }
+
+        else{
+            executeRandomMove();
+        }
+    }
+
+    void executeRandomMove(){
+        int randomPosition = random.nextInt(fields.size());
+        int move = (int) fields.get(randomPosition);
+
+        ImageButton button1 = (ImageButton) findViewById(R.id.imageButton1);
+        ImageButton button2 = (ImageButton) findViewById(R.id.imageButton2);
+        ImageButton button3 = (ImageButton) findViewById(R.id.imageButton3);
+        ImageButton button4 = (ImageButton) findViewById(R.id.imageButton4);
+        ImageButton button5 = (ImageButton) findViewById(R.id.imageButton5);
+        ImageButton button6 = (ImageButton) findViewById(R.id.imageButton6);
+        ImageButton button7 = (ImageButton) findViewById(R.id.imageButton7);
+        ImageButton button8 = (ImageButton) findViewById(R.id.imageButton8);
+        ImageButton button9 = (ImageButton) findViewById(R.id.imageButton9);
+
+
+        switch (move) {
+            case 1:
+                button1.setImageResource(R.drawable.circle);
+                field1[0] = 2;
+                fields.remove(fields.indexOf(1));
+                break;
+            case 2:
+                button2.setImageResource(R.drawable.circle);
+                field2[0] = 2;
+                fields.remove(fields.indexOf(2));
+                break;
+            case 3:
+                button3.setImageResource(R.drawable.circle);
+                field3[0] = 2;
+                fields.remove(fields.indexOf(3));
+                break;
+            case 4:
+                button4.setImageResource(R.drawable.circle);
+                field4[0] = 2;
+                fields.remove(fields.indexOf(4));
+                break;
+            case 5:
+                button5.setImageResource(R.drawable.circle);
+                field5[0] = 2;
+                fields.remove(fields.indexOf(5));
+                break;
+            case 6:
+                button6.setImageResource(R.drawable.circle);
+                field6[0] = 2;
+                fields.remove(fields.indexOf(6));
+                break;
+            case 7:
+                button7.setImageResource(R.drawable.circle);
+                field7[0] = 2;
+                fields.remove(fields.indexOf(7));
+                break;
+            case 8:
+                button8.setImageResource(R.drawable.circle);
+                field8[0] = 2;
+                fields.remove(fields.indexOf(8));
+                break;
+            case 9:
+                button9.setImageResource(R.drawable.circle);
+                field9[0] = 2;
+                fields.remove(fields.indexOf(9));
+                break;
+            default:
+                break;
+
+        }
     }
 
 
