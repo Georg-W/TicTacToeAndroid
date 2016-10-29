@@ -1,15 +1,16 @@
 package georgwestner.de.ticedytac;
 
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
 
 public class MainActivity extends AppCompatActivity{
 
@@ -31,7 +32,6 @@ public class MainActivity extends AppCompatActivity{
     final int[] field9 = {0};
 
     Random random = new Random();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity{
         ImageButton button7 = (ImageButton) findViewById(R.id.imageButton7);
         ImageButton button8 = (ImageButton) findViewById(R.id.imageButton8);
         ImageButton button9 = (ImageButton) findViewById(R.id.imageButton9);
+
+
 
 
         button1.setOnClickListener(new View.OnClickListener() {
@@ -172,6 +174,13 @@ public class MainActivity extends AppCompatActivity{
     void handleButtonClick(ImageButton imagebutton) {
 
         TextView textView = (TextView) findViewById(R.id.player);
+
+
+        /*ObjectAnimator an = ObjectAnimator.ofInt(imagebutton, "alpha", 1, 0);
+        an.setDuration(9000);
+        an.setInterpolator(new BounceInterpolator());
+        an.start();*/
+
         imagebutton.setImageResource(R.drawable.cross);
 
         textView.setText("CPU");
@@ -247,7 +256,6 @@ public class MainActivity extends AppCompatActivity{
 
 
         int possibility = random.nextInt(100);
-        Toast.makeText(this, "Zahl: "+possibility, Toast.LENGTH_SHORT).show();
 
 
         //80% Possibility of random move
