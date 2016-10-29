@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 public class StartScreen extends AppCompatActivity{
 
@@ -16,12 +15,12 @@ public class StartScreen extends AppCompatActivity{
 
 
     void startSingle(View v){
-        Intent startSingle = new Intent(this, SinglePlayer.class);
+        Intent startSingle = new Intent(this, MultiPlayer.class);
         startActivity(startSingle);
     }
 
     void startTwo(View v){
-        Intent startTwo = new Intent(this, MainActivity.class);
+        Intent startTwo = new Intent(this, SinglePlayer.class);
         startActivity(startTwo);
     }
 }
