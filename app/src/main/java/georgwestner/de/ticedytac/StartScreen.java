@@ -13,7 +13,6 @@ public class StartScreen extends AppCompatActivity{
         setContentView(R.layout.activity_start_screen);
     }
 
-
     void startSingle(View v){
         Intent startSingle = new Intent(this, MultiPlayer.class);
         startActivity(startSingle);

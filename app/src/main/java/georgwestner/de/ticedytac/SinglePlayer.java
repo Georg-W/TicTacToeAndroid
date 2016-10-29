@@ -1,6 +1,7 @@
 package georgwestner.de.ticedytac;
 
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -203,7 +204,9 @@ public class SinglePlayer extends AppCompatActivity{
         if (field1[0]==1&&field2[0]==1&&field3[0]==1 || field4[0]==1&&field5[0]==1&&field6[0]==1 || field7[0]==1&&field8[0]==1&&field9[0]==1 ||
                 field1[0]==1&&field4[0]==1&&field7[0]==1 || field2[0]==1&&field5[0]==1&&field8[0]==1 || field3[0]==1&&field6[0]==1&&field9[0]==1 ||
                 field1[0]==1&&field5[0]==1&&field9[0]==1 || field3[0]==1&&field5[0]==1&&field7[0]==1){
-            Toast.makeText(this, "Win! Can you do it again?", Toast.LENGTH_SHORT).show();
+            Intent showResult = new Intent(this, EndingScreen.class);
+            showResult.putExtra(Intent.EXTRA_TEXT, "You win!");
+            startActivity(showResult);
             over=true;
             restartApp();
         }
@@ -212,13 +215,17 @@ public class SinglePlayer extends AppCompatActivity{
                     field1[0]==2&&field4[0]==2&&field7[0]==2 || field2[0]==2&&field5[0]==2&&field8[0]==2 || field3[0]==2&&field6[0]==2&&field9[0]==2 ||
                     field1[0]==2&&field5[0]==2&&field9[0]==2 || field3[0]==2&&field5[0]==2&&field7[0]==2){
                 over=true;
-                Toast.makeText(this, "Noo a loss... Try again and beat the Developer!", Toast.LENGTH_SHORT).show();
+                Intent showResult = new Intent(this, EndingScreen.class);
+                showResult.putExtra(Intent.EXTRA_TEXT, "CPU wins!");
+                startActivity(showResult);
                 restartApp();
 
             }
             else{
                 if(turns==9){
-                    Toast.makeText(this, "Well.. a draw. Try again!", Toast.LENGTH_SHORT).show();
+                    Intent showResult = new Intent(this, EndingScreen.class);
+                    showResult.putExtra(Intent.EXTRA_TEXT, "Draw!");
+                    startActivity(showResult);
                     over=true;
                     restartApp();
                 }
